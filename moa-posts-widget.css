@@ -1,0 +1,17 @@
+.text-col {
+  padding-left: 0 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  .text-col p {
+    margin: 0; }
+  .text-col p.post-date {
+    font-size: .75rem; }
+
+.moa-posts-widget-row.row {
+  margin-bottom: 1rem; }
+  .moa-posts-widget-row.row:last-child {
+    margin-bottom: 0; }
+
+/*# sourceMappingURL=moa-posts-widget.css.map */
