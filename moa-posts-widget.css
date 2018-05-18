@@ -9,9 +9,30 @@
   .text-col p.post-date {
     font-size: .75rem; }
 
+.image-col img {
+  width: 100%; }
+
 .moa-posts-widget-row.row {
   margin-bottom: 1rem; }
   .moa-posts-widget-row.row:last-child {
     margin-bottom: 0; }
+
+.owl-item .moa-posts-widget-row {
+  position: relative; }
+  .owl-item .moa-posts-widget-row .text-col {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    z-index: 2; }
+    .owl-item .moa-posts-widget-row .text-col a {
+      color: #fff;
+      font-size: .75rem;
+      line-height: 1.2em;
+      padding: .5rem;
+      text-decoration: none;
+      display: block; }
 
 /*# sourceMappingURL=moa-posts-widget.css.map */
