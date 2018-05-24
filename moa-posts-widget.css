@@ -14,8 +14,18 @@
 
 .moa-posts-widget-row.row {
   margin-bottom: 1rem; }
+  .moa-posts-widget-row.row .row {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
   .moa-posts-widget-row.row:last-child {
     margin-bottom: 0; }
+
+.moa-posts-widget-row {
+  margin-bottom: 1rem; }
+  .moa-posts-widget-row .text-col {
+    width: 100%;
+    display: block; }
 
 .owl-item .moa-posts-widget-row {
   position: relative; }

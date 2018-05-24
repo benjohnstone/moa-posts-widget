@@ -233,11 +233,11 @@ public function widget( $args, $instance ) {
 					<?php if($layout == 'row'): ?>
 						
 						<?php if(get_the_post_thumbnail()): ?>
-							<div class="col-12 moa-posts-widget-row">
+							<div class="row moa-posts-widget-row">
 								<div class="container">
 									<div class="row">
 										<div class="col-5 image-col">
-											<?php the_post_thumbnail('thumbnail', ['class' => 'img-fluid img-responsive responsive--full', 'title' => 'Feature image']) ?>
+											<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail', ['class' => 'img-fluid img-responsive responsive--full', 'title' => 'Feature image']) ?></a>
 										</div>
 										<div class="col-7 text-col">
 											<div class="inner-wrap">
@@ -267,7 +267,7 @@ public function widget( $args, $instance ) {
 					
 					
 						<?php if(get_the_post_thumbnail()): ?>
-						<div class="<?php if(!$carousel):?>col-3 <?php endif; ?>moa-posts-widget-row">
+						<div class="moa-posts-widget-row">
 							<div class="image-col">
 								<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail', ['class' => 'img-fluid img-responsive responsive--full', 'title' => 'Feature image']) ?></a>
 							</div>

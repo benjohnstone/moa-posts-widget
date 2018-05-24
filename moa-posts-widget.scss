@@ -21,8 +21,22 @@
 }
 .moa-posts-widget-row.row {
 	margin-bottom: 1rem;
+	.row {
+		display: flex;
+	align-items: center;
+  justify-content: center;
+	}
+	
 	&:last-child {
 		margin-bottom: 0;
+	}
+}
+.moa-posts-widget-row {
+	margin-bottom: 1rem;
+	.text-col {
+		width: 100%;
+		display: block;
+		
 	}
 }
 
