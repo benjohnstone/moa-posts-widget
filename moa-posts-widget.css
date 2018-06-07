@@ -45,4 +45,7 @@
       text-decoration: none;
       display: block; }
 
+.moa-posts.layout-column .image-col {
+  margin-bottom: 0.5rem; }
+
 /*# sourceMappingURL=moa-posts-widget.css.map */

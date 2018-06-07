@@ -37,6 +37,7 @@ public function form( $instance ) {
 		'post_type' => 'post',
 		'layout' => 'row',
 		'width' => 'boxed',
+		'image_size' => 'thumbnail',
 		'number_of_posts' => 5,
 		'category_ids' => '',
 		'before_posts' => '',
@@ -81,6 +82,13 @@ public function form( $instance ) {
 		} ?>
 		</select>
 	</p>
+	
+	<?php // Image size ?>
+	<p>
+		<label for="<?php echo esc_attr( $this->get_field_id( 'image_size' ) ); ?>"><?php _e( 'Image size', 'text_domain' ); ?></label>
+		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'image_size' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image_size' ) ); ?>" type="text" value="<?php echo esc_attr( $image_size ); ?>" />
+	</p>
+	
 	
 	<?php // Width dropdown ?>
 	<p>
@@ -150,6 +158,7 @@ public function form( $instance ) {
 		$instance['title']    = isset( $new_instance['title'] ) ? wp_strip_all_tags( $new_instance['title'] ) : '';
 		$instance['post_type']    = isset( $new_instance['post_type'] ) ? wp_strip_all_tags( $new_instance['post_type'] ) : '';
 		$instance['layout']   = isset( $new_instance['layout'] ) ? wp_strip_all_tags( $new_instance['layout'] ) : '';
+		$instance['image_size']    = isset( $new_instance['image_size'] ) ? wp_strip_all_tags( $new_instance['image_size'] ) : '';
 		$instance['width']   = isset( $new_instance['width'] ) ? wp_strip_all_tags( $new_instance['width'] ) : '';
 		$instance['number_of_posts']    = isset( $new_instance['number_of_posts'] ) ? wp_strip_all_tags( $new_instance['number_of_posts'] ) : '';
 		$instance['category_ids']     = isset( $new_instance['category_ids'] ) ? wp_strip_all_tags( $new_instance['category_ids'] ) : '';
@@ -174,6 +183,7 @@ public function widget( $args, $instance ) {
 	$title    = isset( $instance['title'] ) ? apply_filters( 'widget_title', $instance['title'] ) : '';
 	$post_type    = isset( $instance['post_type'] ) ?  $instance['post_type'] : '';
 	$layout    = isset( $instance['layout'] ) ?  $instance['layout'] : '';
+	$image_size    = isset( $instance['image_size'] ) ? apply_filters( 'image_size', $instance['image_size'] ) : '';
 	$width    = isset( $instance['width'] ) ?  $instance['width'] : '';
 	$number_of_posts    = isset( $instance['number_of_posts'] ) ? $instance['number_of_posts'] : '';
 	$category_ids     = isset( $instance['category_ids'] ) ? $instance['category_ids'] : '';
@@ -215,7 +225,7 @@ public function widget( $args, $instance ) {
 		<?php if($width == 'boxed'): ?>
 		<div class="container">
 		<?php endif; ?>
-		<div class="moa-posts ~row <?php if($carousel): ?>owl-carousel owl-theme<?php endif; ?>">
+		<div class="moa-posts layout-<?= $layout; ?> ~row <?php if($carousel): ?>owl-carousel owl-theme<?php endif; ?>">
 		<?php
 	 	
 	 	if ( $the_query->have_posts() ) {
@@ -237,7 +247,7 @@ public function widget( $args, $instance ) {
 								<div class="container">
 									<div class="row">
 										<div class="col-5 image-col">
-											<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail', ['class' => 'img-fluid img-responsive responsive--full', 'title' => 'Feature image']) ?></a>
+											<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail($image_size, ['class' => 'img-fluid img-responsive responsive--full', 'title' => 'Feature image']) ?></a>
 										</div>
 										<div class="col-7 text-col">
 											<div class="inner-wrap">
@@ -269,7 +279,7 @@ public function widget( $args, $instance ) {
 						<?php if(get_the_post_thumbnail()): ?>
 						<div class="moa-posts-widget-row">
 							<div class="image-col">
-								<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail', ['class' => 'img-fluid img-responsive responsive--full', 'title' => 'Feature image']) ?></a>
+								<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail($image_size, ['class' => 'img-fluid img-responsive responsive--full', 'title' => 'Feature image']) ?></a>
 							</div>
 							<div class="text-col">
 								<div class="inner-wrap">
